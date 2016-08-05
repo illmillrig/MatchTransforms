@@ -21,7 +21,7 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 			nodes.getDagPath(i, dagNode)
 			nodeList.append(dagNode)
 
-	elif isinstance(nodes, om.MObject): or isinstance(nodes, om.MDagPath):
+	elif isinstance(nodes, om.MObject):
 		nodeList.append(om.MDagPath.getAPathTo(nodes))
 
 	elif isinstance(nodes, om.MDagPath):
