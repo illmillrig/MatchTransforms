@@ -17,24 +17,19 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 	nodeList = []
 	if isinstance(nodes, []):
 		nodeList = nodes
-	
 	elif isinstance(nodes, om.MSelectionList):
 		dagNode = om.MDagPath()
 		for i in xrange(nodes.length()):
 			nodes.getDagPath(i, dagNode)
 			nodeList.append(dagNode)
-
 	elif isinstance(nodes, om.MObject):
 		nodeList.append(om.MDagPath.getAPathTo(nodes))
-
 	elif isinstance(nodes, om.MDagPath):
 		nodeList.append(nodes)
-
 	elif isinstance(nodes, om.MDagPathArray):
 		for i in xrange(nodes.length()):
 			nodeList.append(nodes[i])
 		
-
 	# get the proper matrix of source
 	if space == om.MSpace.kWorld:
 		srcTfm = getGlobalTransform(source, "worldMatrix")
