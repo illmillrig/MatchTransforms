@@ -1,30 +1,4 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @illmillrig
-
-1
-0
-
-    0
-
-illmillrig/matchTransforms
-Code
-Issues 0
-Pull requests 0
-Wiki
-Pulse
-Graphs
-Settings
-matchTransforms/matchTransforms.py
-6085494 5 hours ago
-@illmillrig illmillrig Add files via upload
-81 lines (62 sloc) 2.02 KB
+import maya.OpenMaya as om
 
 def getGlobalTransform(node, tfmPlug="worldMatrix"):
 	fn = om.MFnTransform(node)
@@ -40,10 +14,7 @@ def getGlobalTransform(node, tfmPlug="worldMatrix"):
 
 
 def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space=om.MSpace.kWorld, matchPivot=False):
-	# confirm/create MSelectionList of nodes
-
 	nodeList = []
-	
 	if isinstance(nodes, om.MSelectionList):
 		dagNode = om.MDagPath()
 		for i in xrange(nodes.length()):
