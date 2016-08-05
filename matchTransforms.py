@@ -30,7 +30,7 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 		for i in xrange(nodes.length()):
 			nodeList.append(nodes[i])
 	else:
-		raise RuntimError("incorrect type: nodes")
+		raise RuntimeError("incorrect type: nodes")
 		
 	# get the proper matrix of source
 	if space == om.MSpace.kWorld:
