@@ -15,11 +15,11 @@ def getGlobalTransform(node, tfmPlug="worldMatrix"):
 
 def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space=om.MSpace.kWorld, matchPivot=False):
 	nodeList = []
-	if isinstance(nodes, []):
+	if isinstance(nodes, list):
 		nodeList = nodes
 	elif isinstance(nodes, om.MSelectionList):
-		dagNode = om.MDagPath()
 		for i in xrange(nodes.length()):
+			dagNode = om.MDagPath()
 			nodes.getDagPath(i, dagNode)
 			nodeList.append(dagNode)
 	elif isinstance(nodes, om.MObject):
