@@ -29,6 +29,8 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 	elif isinstance(nodes, om.MDagPathArray):
 		for i in xrange(nodes.length()):
 			nodeList.append(nodes[i])
+	else:
+		return
 		
 	# get the proper matrix of source
 	if space == om.MSpace.kWorld:
