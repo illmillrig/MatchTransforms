@@ -51,7 +51,6 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 
 	fn = om.MFnTransform()
 	for node in nodeList:
-	
 		if space == om.MSpace.kObject:
 			tfm = srcTfm
 		else:
@@ -67,18 +66,16 @@ def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space
 
 		# Set Transforms----------------------------
 		fn.setObject(node)
+		
 		# set Scaling
 		if scale:
 			fn.setScale(scl)
-
 		# set Rotation
 		if rotate:
 			fn.setRotation(rot)
-
 		# set Translation
 		if translate:
 			if matchPivot:
 				nodePivot = fn.scalePivot(space)
 				pos += srcPivot - nodePivot
-
 			fn.setTranslation(pos, space)
