@@ -10,7 +10,7 @@ def getGlobalTransform(node, tfmPlug="worldMatrix"):
 	mat = plug.asMObject()
 	fnMat = om.MFnMatrixData(mat)
 
-	return om.MTransformationMatrix(fnMat.matrix())
+	return fnMat.transformation()
 
 
 def matchTransform(nodes, source, translate=True, rotate=True, scale=True, space=om.MSpace.kWorld, matchPivot=False):
